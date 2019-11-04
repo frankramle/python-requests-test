@@ -51,7 +51,7 @@ def test_put_modificar_cliente():
     cod_postal = str(resp.json()['cod_postal'])
     telefono = str(resp.json()['telefono'])
     print(resp.json())
-    assert (resp.status_code == 200), "Status code is not 201. Rather found : " + str(resp.status_code)
+    assert (resp.status_code == 200), "Status code is not 200. Rather found : " + str(resp.status_code)
     assert (id == _id), "ID is different al params. Response id is: " + id
     assert (nombres == data['nombres']), "Nombres is different to the request. Response nombres is: " + nombres
     assert (apellido == data['apellido']), "Apellido is different to the request. Response apellido is: " + apellido
@@ -62,9 +62,9 @@ def test_put_modificar_cliente():
 #Elimino el cliente que inserte
 def test_delete_cliente():
     resp = requests.delete(_url + "/clientes/" + _id)
-    assert (resp.status_code == 204), "Status code is not 201. Rather found : " + str(resp.status_code)
+    assert (resp.status_code == 204), "Status code is not 204. Rather found : " + str(resp.status_code)
 
 #Verifico que el cliente no este en la BD
 def test_get_cliente():
     resp = requests.get(_url + "/clientes" + _id)
-    assert (resp.status_code == 404), "Status code is not 200. Rather found : " + str(resp.status_code)
+    assert (resp.status_code == 404), "Status code is not 404. Rather found : " + str(resp.status_code)
