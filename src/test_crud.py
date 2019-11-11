@@ -28,6 +28,7 @@ def test_post_insertar_cliente():
     print(resp.json())
     assert (resp.status_code == 201), "Status code is not 201. Rather found : " + str(resp.status_code)
     assert 'id' in jsonData
+    assert 'nombres' in jsonData
     assert 'apellido' in jsonData
     assert 'direccion' in jsonData
     assert 'cod_postal' in jsonData
